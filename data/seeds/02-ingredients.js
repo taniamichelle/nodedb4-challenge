@@ -13,5 +13,6 @@ exports.seed = function (knex) {
     { ingredient_name: 'pepper' },
     { ingredient_name: 'sugar' },
     { ingredient_name: 'baking powder' },
+    { ingredient_name: 'butter' },
   ]);
 };
