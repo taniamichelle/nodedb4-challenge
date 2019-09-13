@@ -32,23 +32,20 @@ router.get('/:id', (req, res) => {
         });
 });
 
-// router.get('/:id/instructions', (req, res) => {
-//     const {id: recipe_id} = req.params;
-//     Recipes.getInstructions(recipe_id)
-//         .then(instructions => {
-//             if()
-//         })
-// });
-// Schemes.findSteps(id)
-//     .then(steps => {
-//         if (steps.length) {
-//             res.json(steps);
-//         } else {
-//             res.status(404).json({ message: 'Could not find steps for given scheme' })
-//         }
-//     })
-//     .catch(err => {
-//         res.status(500).json({ message: 'Failed to get steps' });
-//     });
-// });
+router.get('/:id/instructions', (req, res) => {
+    const { id: recipe_id } = req.params;
+    Recipes.getInstructions(recipe_id)
+        .then(steps => {
+            if (steps.length) {
+                res.json(steps)
+            } else {
+                res.status(404).json({ error: "Error finding step with that id." });
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ error: 'Failed to get steps.' });
+        });
+});
+
 module.exports = router;
