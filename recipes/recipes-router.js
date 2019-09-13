@@ -1,4 +1,7 @@
-const router = require('express').Router;
+// const express = require('express');
+// const router = express.Router();
+
+const router = require('express').Router();
 
 const Recipes = require('./recipes-model');
 
@@ -21,3 +24,5 @@ router.get('/:id', (req, res) => {
 router.get('/:id/instructions', (req, res) => {
 
 });
+
+module.exports = router;
