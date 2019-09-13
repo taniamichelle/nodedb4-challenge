@@ -4,8 +4,8 @@ const Recipes = require('./recipes-model');
 
 router.get('/', (req, res) => {
     Recipes.getRecipes()
-        .then(recipe => {
-            res.status(200).json(recipe);
+        .then(recipes => {
+            res.status(200).json(recipes);
         })
         .catch(err => {
             console.log(err);
@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-
+    const { id } = req.params;
+    Recipes.getShoppingList()
 });
 
 router.get('/:id/instructions', (req, res) => {
